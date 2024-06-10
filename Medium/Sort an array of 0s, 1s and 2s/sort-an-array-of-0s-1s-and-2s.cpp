@@ -11,28 +11,23 @@ class Solution
     void sort012(int a[], int n)
     {
         // code here 
-        int c0=0,c1=0;
-        for(int i=0;i<n;i++){
+        // sort(a,a+n);
+        // return;
+        int l=0,r=n-1;
+        for(int i=0;i<n && i<=r;){
             if(a[i]==0){
-                c0++;
+                swap(a[i],a[l]);
+                i++;l++;
             }
-            else if(a[i]==1){
-                c1++;
-            }
-        }
-        for(int i=0;i<n;i++){
-            if(c0>0){
-                a[i]=0;
-                c0--;
-            }
-            else if(c1>0){
-                a[i]=1;
-                c1--;
+            else if(a[i]==2){
+                swap(a[i],a[r]);
+                r--;
             }
             else{
-                a[i]=2;
+                i++;
             }
         }
+        return;
     }
     
 };
